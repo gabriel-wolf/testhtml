@@ -1,10 +1,130 @@
 <!DOCTYPE html>
 <html>
-<body>
+    <head>
+        <title>Spend Hawken's Money</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
 
-<h1>My First Heading</h1>
+    <body>
+        <div class="fulldiv">
+            <div class="top">
+                <h1 class="header">Spend Hawken's Money</h1>
+            </div>
+            <div>
+                <h2 id="totalid" class="total dollasign">42845838</h1>
+            </div>
 
-<p>My first paragraph.</p>
+            <form name="mainForm" action="" method="post" onchange="validateForm()" onload="validateForm()">
+                <div class="grid-container">
+                      <!-- SALARY AND BENEFITS  -->
+                    <div> 
+                        <label class="listtitle">Salary and Benefits</label><br>
+                        <input class="listcost" type="number" id="sa" name="Salary and Benefits" min="0" max="42845838" step="100" value="22303000">
+                    </div>
 
-</body>
+                      <!-- FINANCIAL AID  -->
+                      <div> 
+                        <label class="listtitle">Financial Aid</label><br>
+                        <input class="listcost" type="number" id="fa" name="Financial Aid" min="0" max="42845838" step="100" value="10631240">
+                    </div>
+
+                    <!-- ATHLETICS  -->
+                    <div> 
+                        <label class="listtitle">Athletics</label><br>
+                        <input class="listcost" type="number" id="at" name="Athletics" min="0" max="42845838" step="100" value="0">
+                    </div>
+                    
+                    <!-- INTENSIVES -->
+                    <div>
+                        <label class="listtitle">Intensives</label><br>
+                        <input class="listcost" type="number" id="in" name="Intensives" min="0" max="42845838" step="100" value="0">
+                    </div>
+
+                    <!-- SUPPLIES -->
+                    <div>
+                        <label class="listtitle">Supplies</label><br>
+                        <input class="listcost" type="number" id="su" name="Supplies" min="0" max="42845838" step="100" value="0">
+                    </div>
+
+                    <!-- MAINTENANCE -->    
+                    <div>
+                        <label class="listtitle">Maintenance</label><br>
+                        <input class="listcost" type="number" id="ma" name="Maintenance" min="0" max="42845838" step="100" value="1233000">
+                    </div>
+
+                    <!-- ADMINISTRATION -->
+                    <div>
+                        <label class="listtitle">Administration</label><br>
+                        <input class="listcost" type="number" id="ad" name="Administration" min="0" max="42845838" step="100" value="1214000">
+                    </div>
+
+                    <!-- UTILITIES -->
+                    <div>
+                        <label class="listtitle">Utilities</label><br>
+                        <input class="listcost" type="number" id="ut" name="Utilities" min="0" max="42845838" step="100" value="1242000">
+                    </div>
+
+                    <!-- STATE AID -->
+                    <div>
+                        <label class="listtitle">State Aid</label><br>
+                        <input class="listcost" type="number" id="st" name="State Aid" min="0" max="42845838" step="100" value="0">
+                    </div>
+
+                    <!-- DINING -->
+                    <div>
+                        <label class="listtitle">Dining</label><br>
+                        <input class="listcost" type="number" id="di" name="Dining" min="0" max="42845838" step="100" value="0">
+                    </div>
+
+                    <!-- CAMPS -->
+                    <div>
+                        <label class="listtitle">Camps</label><br>
+                        <input class="listcost" type="number" id="ca" name="Camps" min="0" max="42845838" step="100" value="0">
+                    </div>
+
+                    <!-- INTEREST EXPENSES -->
+                    <div>
+                        <label class="listtitle">Interest Expense</label><br>
+                        <input class="listcost" type="number" id="ex" name="Interest Expesnse" min="0" max="42845838" step="100" value="1120000">
+                    </div>
+
+                    <!-- CONTINGENCY -->
+                    <div>
+                        <label class="listtitle">Contingency</label><br>
+                        <input class="listcost" type="number" id="co" name="Contingency" min="0" max="42845838" step="100" value="233000">
+                    </div>
+
+                    <!-- COVID -->
+                    <div>
+                        <label class="listtitle">COVID</label><br>
+                        <input class="listcost" type="number" id="19" name="COVID" min="0" max="42845838" step="100" value="1375000">
+                    </div>
+                </div>
+            </form>
+            
+            <br>
+            <button onclick="validateForm()">validateForm</button>
+
+
+            <script>
+            function validateForm() {
+                var STARTINGTOTAL = 42845838;
+                var formElements = document.forms["mainForm"].elements
+                var total = 0;
+                for (var i = 0, element; element = formElements[i++];) {
+                    var val = element.value;
+                    console.log(val);
+                    total = Number(total) + Number(val);
+                }
+                console.log(total);
+                var totalelement = document.getElementById("totalid");
+                totalelement.textContent = (Number(STARTINGTOTAL) - Number(total)).toString()
+            }
+            validateForm(); // run on start
+            </script>
+
+
+        </div>
+
+    </body>
 </html>
